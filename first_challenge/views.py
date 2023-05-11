@@ -10,6 +10,7 @@ def dijkstra(request):
     if request.method == "POST":
         start = request.POST.get('start')
         end = request.POST.get('end')
+
         path = graph.dijkstra(start, end)
 
         context['path'] = path

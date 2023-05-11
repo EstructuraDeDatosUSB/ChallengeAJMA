@@ -1,19 +1,30 @@
-{% extends "index.html" %}
+{% extends "templates/first_challenge_template/index.html" %}
 
 {% block content %}
-    <img src="data:image/png;base64,{{ image }}" alt="Grafo">
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="start">Ciudad de Partida</label>
-            <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida" value="{{ start }}">
+    <div class="card" style="width: 100vw; height: 100vh;">
+        <center>
+            <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 35rem; height: auto">
+        </center>
+        <div class="card-body">
+            <div class="card-title">Primer Reto AGMA</div>
+            <p class="card-text">Aqui podrás hallar la ruta más corta entre dos ciudades</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="start">Ciudad de Partida</label>
+                    <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida"
+                           value="{{ start }}">
+                </div>
+                <div class="form-group">
+                    <label for="end">Ciudad de Llegada</label>
+                    <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegada"
+                           value="{{ end }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="end">Ciudad de Llegada</label>
-            <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegadda" value="{{ end }}">
+        <div class="card-footer">
+            <p class="card-text">Ruta Mas Corta: {{ path }}</p>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <p>Ruta Mas Corta: {{ path }}</p>
+    </div>
 {% endblock %}

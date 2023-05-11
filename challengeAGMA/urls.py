@@ -23,5 +23,5 @@ from first_challenge.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', dijkstra),
+    path('first_challenge/', dijkstra),
 ]
