@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <img src="data:image/png;base64,{{ image }}" alt="Grafo">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="start">Ciudad de Partida</label>
+            <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida" value="{{ start }}">
+        </div>
+        <div class="form-group">
+            <label for="end">Ciudad de Llegada</label>
+            <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegadda" value="{{ end }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <p>Ruta Mas Corta: {{ path }}</p>
+{% endblock %}
