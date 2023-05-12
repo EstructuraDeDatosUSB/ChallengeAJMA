@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.urls import path
 
 from first_challenge.views import (
-    dijkstra,
+    firstChallenge,
+    graphCreation,
+    secondChallenge,
 )
 
 urlpatterns = [
+    path('', graphCreation),
     path('admin/', admin.site.urls),
-    path('first_challenge/', dijkstra),
+    path('first_challenge/', firstChallenge),
+    path('second_challenge/', secondChallenge),
 ]

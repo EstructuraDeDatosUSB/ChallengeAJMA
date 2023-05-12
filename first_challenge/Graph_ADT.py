@@ -294,8 +294,50 @@ class Graph:
         result = path[::-1]
         result.insert(0, start)
         return result
-    
-    
+
+
+    # =====================================================================
+
+    def find_all_paths(self, start):
+        # Inicializar la lista de rutas
+        all_paths = []
+
+        # Iterar sobre todos los nodos en el grafo
+        for node in self.adjacentList:
+            # Encontrar todas las rutas indirectas desde el nodo actual hasta los demás nodos
+            if node != start:
+                paths = self.find_paths(start, node)
+                # Agregar las rutas encontradas a la lista de rutas
+                all_paths.extend(paths)
+
+        return all_paths
+
+    def find_paths(self, start, end, path=[], weight=0):
+        # Añadir el nodo actual al camino
+        path = path + [start] if isinstance(start, list) else path + [start]
+
+        # Si el nodo actual es igual al nodo final, hemos encontrado una ruta
+        if start == end:
+            return [path + [weight]]
+
+        # Si el nodo actual no está en el grafo, no hay ruta posible
+        if start not in self.adjacentList:
+            return []
+
+        # Inicializar la lista de rutas
+        paths = []
+
+        # Recorrer todas las conexiones desde el nodo actual
+        for node, edge_weight in self.adjacentList[start]:
+            # Evitar ciclos
+            if node not in path:
+                # Encontrar todas las rutas indirectas desde el nodo adyacente hasta el nodo final
+                new_paths = self.find_paths(node, end, path, weight + edge_weight)
+                # Agregar las rutas encontradas a la lista de rutas
+                paths.extend(new_paths)
+
+        return paths
+
     def visualize(self):
         """
         Visualiza el grafo utilizando la libreria networkx.
@@ -352,13 +394,6 @@ class Graph:
         image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
         return image_base64
 
-
-
-
-
-
-
-
     def __str__(self):
         """
         Retorna una representacion en string del grafo.
@@ -378,3 +413,9 @@ class Graph:
             result += ", ".join(neighbors)
             result += "\n"
         return result
+
+#   Grafo predefinido
+
+
+cities = Graph(weighted=True, directed=True)
+

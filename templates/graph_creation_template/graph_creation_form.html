@@ -1,6 +1,7 @@
 {% extends "index.html" %}
 
-{% block title %}Primer Reto AJMA{% endblock %}
+{% block title %}Creación del grafo!{% endblock %}
+
 
 {% block content %}
     <div class="card" style="width: 100vw; height: 100vh;">
@@ -8,25 +9,32 @@
             <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 35rem; height: auto">
         </center>
         <div class="card-body">
-            <div class="card-title">Primer Reto AJMA</div>
-            <p class="card-text">Aqui podrás hallar la ruta más corta entre dos ciudades</p>
+            <div class="card-title">Creación de Rutas</div>
+            <p class="card-text">Aqui podras crear las rutas y ciudades que desees</p>
+            <p class="card-text text-muted">Para crear una ruta, ingresa la ciudad de partida y la ciudad de llegada</p>
+            <p class="card-text text-muted"> Si deseas crear una ruta con ciudad(es) que todavia no existe solo hazlo que el sistema lo acomoda</p>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="start">Ciudad de Partida</label>
                     <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida"
-                           value="{{ start }}">
+                           >
                 </div>
                 <div class="form-group">
                     <label for="end">Ciudad de Llegada</label>
                     <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegada"
-                           value="{{ end }}">
+                           >
+                </div>
+                <div class="form-group">
+                    <label for="distance">Distancia</label>
+                    <input type="number" class="form-control" id="distance" name="distance" placeholder="Distancia"
+                           >
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
         <div class="card-footer">
-            <p class="card-text">Ruta Mas Corta: {{ path }}</p>
+            <p class="card-text">Ruta Creada: {{ route }}</p>
         </div>
     </div>
 {% endblock %}
