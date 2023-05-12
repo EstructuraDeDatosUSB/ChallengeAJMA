@@ -40,7 +40,6 @@ def graphCreation(request):
 
         return render(request, 'graph_creation_template/graph_creation_form.html', context)
     else:
-        loadGraph(cities)
         context = {}
         image = cities.draw_graph()
         context['image'] = image

@@ -17,17 +17,17 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="start">Ciudad de Partida</label>
-                    <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida"
+                    <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida" required
                            >
                 </div>
                 <div class="form-group">
                     <label for="end">Ciudad de Llegada</label>
-                    <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegada"
+                    <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegada" required
                            >
                 </div>
                 <div class="form-group">
                     <label for="distance">Distancia</label>
-                    <input type="number" class="form-control" id="distance" name="distance" placeholder="Distancia"
+                    <input type="number" class="form-control" id="distance" name="distance" placeholder="Distancia" required
                            >
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
