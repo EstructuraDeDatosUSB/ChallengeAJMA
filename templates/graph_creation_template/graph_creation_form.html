@@ -10,19 +10,19 @@
         </center>
         <div class="card-body">
             <div class="card-title">Creación de Rutas</div>
-            <p class="card-text">Aqui podras crear las rutas y ciudades que desees</p>
-            <p class="card-text text-muted">Para crear una ruta, ingresa la ciudad de partida y la ciudad de llegada</p>
-            <p class="card-text text-muted"> Si deseas crear una ruta con ciudad(es) que todavia no existe solo hazlo que el sistema lo acomoda</p>
+            <p class="card-text">Aqui podras crear las rutas y puertos que desees</p>
+            <p class="card-text text-muted">Para crear una ruta, ingresa el puerto de partida y el puerto de llegada</p>
+            <p class="card-text text-muted"> Si deseas crear una ruta con puertos que todavia no existe solo hazlo que el sistema lo acomoda</p>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="start">Ciudad de Partida</label>
-                    <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida" required
+                    <label for="start">Puerto de Partida</label>
+                    <input type="text" class="form-control" id="start" name="start" placeholder="Puerto de Partida" required
                            >
                 </div>
                 <div class="form-group">
-                    <label for="end">Ciudad de Llegada</label>
-                    <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegada" required
+                    <label for="end">Puerto de Llegada</label>
+                    <input type="text" class="form-control" id="end" name="end" placeholder="Puerto de Llegada" required
                            >
                 </div>
                 <div class="form-group">

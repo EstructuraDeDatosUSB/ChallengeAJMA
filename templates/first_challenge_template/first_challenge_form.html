@@ -8,19 +8,27 @@
             <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 35rem; height: auto">
         </center>
         <div class="card-body">
-            <div class="card-title">Primer Reto AJMA</div>
-            <p class="card-text">Aqui podrás hallar la ruta más corta entre dos ciudades</p>
+            <p class="card-text">Aqui podrás hallar la ruta más corta entre dos puertos</p>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="start">Ciudad de Partida</label>
-                    <input type="text" class="form-control" id="start" name="start" placeholder="Ciudad de Partida"
-                           value="{{ start }}" required>
+                    <label for="start">Puerto de Partida</label>
+                    <select class="form-control" id="start" name="start" required>
+                        <option value="" selected disabled hidden>Seleccione Puerto</option>
+                        {% for city in city_list %}
+                            <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="end">Ciudad de Llegada</label>
-                    <input type="text" class="form-control" id="end" name="end" placeholder="Ciudad de Llegada"
-                           value="{{ end }}" required>
+                    <label for="end">Puerto de Llegada</label>
+                    <select class="form-control" id="end" name="end" required>
+                        <option value="" selected disabled hidden>Seleccione un puerto</option>
+                        {% for city in city_list %}
+                            <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -5,22 +5,21 @@
 {% block content %}
     <div class="card" style="width: 100vw; height: 80vh;">
         <center>
-            <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 35rem; height: auto">
+            <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 45rem; height: auto">
         </center>
         <div class="card-body">
-            <div class="card-title">Segundo Reto AJMA</div>
-            <p class="card-text">Aqui podras conocer todas las conexiones directas e indirectas de una ciudad</p>
+            <p class="card-text">Aqui podras conocer todas las conexiones directas e indirectas de un puerto</p>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="start">Ciudad</label>
-                    <input type="text" class="form-control" id="start" name="city" placeholder="Ciudad de Partida"
+                    <label for="start">Puerto</label>
+                    <input type="text" class="form-control" id="start" name="city" placeholder="Puerto de Partida"
                            value="{{ start }}" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div class="card-footer">
+        <div class="card-footer" style="height: auto">
             <p class="card-text">Rutas Directas:</p>
             <ul>
                 {% for route in directRoutes %}

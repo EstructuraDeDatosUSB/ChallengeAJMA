@@ -15,12 +15,14 @@ def firstChallenge(request):
         context['start'] = start
         context['end'] = end
 
+    context['city_list'] = cities.getVertices()
     image = cities.draw_graph()
     context['image'] = image
     return render(request, 'first_challenge_template/first_challenge_form.html', context)
 
 
 def graphCreation(request):
+    context = {}
     if request.method == "POST":
         start = request.POST.get('start')
         end = request.POST.get('end')
@@ -38,12 +40,11 @@ def graphCreation(request):
 
         context['route'] = start + " hacia " + end + " con distancia de " + str(distance) + " km"
 
-        return render(request, 'graph_creation_template/graph_creation_form.html', context)
-    else:
-        context = {}
-        image = cities.draw_graph()
-        context['image'] = image
-        return render(request, 'graph_creation_template/graph_creation_form.html', context)
+    context['city_list'] = cities.getVertices()
+    image = cities.draw_graph()
+    context['image'] = image
+    return render(request, 'graph_creation_template/graph_creation_form.html', context)
+
 
 def secondChallenge(request):
     context = {}
@@ -58,6 +59,7 @@ def secondChallenge(request):
         context['indirectRoutes'] = undirected_paths
         context['city'] = city
 
+    context['city_list'] = cities.getVertices()
     image = cities.draw_graph()
     context['image'] = image
     return render(request, 'second_challenge_template/second_challenge_form.html', context)

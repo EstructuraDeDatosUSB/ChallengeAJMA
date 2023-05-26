@@ -417,5 +417,5 @@ class Graph:
 #   Grafo predefinido
 
 
-cities = Graph(weighted=True, directed=True)
+cities = Graph(weighted=True)
 
