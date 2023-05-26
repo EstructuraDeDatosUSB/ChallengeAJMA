@@ -13,8 +13,12 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="start">Puerto</label>
-                    <input type="text" class="form-control" id="start" name="city" placeholder="Puerto de Partida"
-                           value="{{ start }}" required>
+                    <select class="form-control" id="city" name="city" required>
+                        <option value="" selected disabled hidden>Seleccione un puerto</option>
+                        {% for city in city_list %}
+                            <option value="{{ city }}">{{ city }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
