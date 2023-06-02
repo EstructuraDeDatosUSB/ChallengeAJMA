@@ -8,7 +8,6 @@ Este proyecto es parte de un conjunto de programas desarrollados para la empresa
 - [Características](#características)
 - [Créditos](#créditos)
 - [Licencia](#licencia)
-- [Contacto](#contacto)
 
 ## Instalación
 
