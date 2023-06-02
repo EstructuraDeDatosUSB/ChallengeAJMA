@@ -15,11 +15,11 @@
             </center>
         {% endif %}
         <div class="card-body">
-            <p class="card-text">Aqui podras conocer todas las conexiones directas e indirectas de un puerto</p>
+            <p class="card-text">Aquí podrás conocer todas las conexiones directas e indirectas de un puerto</p>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="start">Puerto</label>
+                    <label for="start">Seleccione un Puerto</label>
                     <select class="form-control" id="city" name="city" required>
                         <option value="" selected disabled hidden>Seleccione un puerto</option>
                         {% for city in city_list %}
@@ -49,7 +49,7 @@
             <p class="card-text">Rutas Indirectas:</p>
             <ul>
                 {% for route in indirectRoutes %}
-                    <li style="border: black 1px solid; margin-bottom: 1rem">
+                    <li>
                         {% for city in route %}
                             {% if forloop.last %}
                                 {{ city }} km

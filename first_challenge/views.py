@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .Graph_ADT import cities
-from .SpecialFunctions1 import *
+from scripts.Graph_ADT import cities
+from scripts.SpecialFunctions1 import *
 
 
 def firstChallenge(request):

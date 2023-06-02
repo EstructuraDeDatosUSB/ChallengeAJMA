@@ -134,6 +134,7 @@ class Graph:
         Returns:
         int: El peso de la arista entre los dos vertices dados.
         """
+        print(self.adjacent_list[src])
         for neighbor, weight in self.adjacent_list[src]:
             if neighbor == dest:
                 return weight
@@ -345,7 +346,7 @@ class Graph:
 
         # Si el nodo actual es igual al nodo final, hemos encontrado una ruta
         if start == end:
-            return [path + weight]
+            return [path + [weight]]
 
         # Si el nodo actual no está en el grafo, no hay ruta posible
         if start not in self.adjacent_list:

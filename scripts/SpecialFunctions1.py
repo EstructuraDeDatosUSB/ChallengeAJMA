@@ -1,5 +1,3 @@
-from .Graph_ADT import *
-
 def loadGraph(graph):
     """
     Carga el grafo con las ciudades y sus distancias.
