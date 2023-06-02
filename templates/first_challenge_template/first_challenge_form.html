@@ -5,7 +5,7 @@
 {% block content %}
     <div class="card" style="width: 100vw; height: 100vh;">
         <center>
-            <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 35rem; height: auto">
+            <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 40rem; height: auto">
         </center>
         <div class="card-body">
             <p class="card-text">Aqui podrás hallar la ruta más corta entre dos puertos</p>
@@ -34,7 +34,12 @@
             </form>
         </div>
         <div class="card-footer">
-            <p class="card-text">Ruta Mas Corta: {{ path }}</p>
+            <p class="card-text">Ruta Mas Corta: {{ path }} | Distance: {{ dist }}</p>
         </div>
+        {% if image_dijkstra is not None %}
+            <center>
+                <img class="card-img-top" src="data:image/png;base64,{{ image_dijkstra }}" alt="Grafo" style="width: 40rem; height: auto">
+            </center>
+        {% endif %}
     </div>
 {% endblock %}
