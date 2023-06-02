@@ -4,6 +4,12 @@ from .SpecialFunctions1 import *
 
 
 def firstChallenge(request):
+    """
+        Esta función se encarga de renderizar el template del primer reto, que es el de encontrar la ruta más corta
+        :param request: The request object
+        :return: The render of the first challenge form
+    """
+
     context = {}
 
     if request.method == "POST":
@@ -26,6 +32,13 @@ def firstChallenge(request):
 
 
 def graphCreation(request):
+    """
+            Esta función se encarga de renderizar el template de la creación del grafo, que consiste en agregar
+            rutas y sus distancias
+            :param request: The request object
+            :return: The render of the first challenge form
+        """
+
     context = {}
 
     if request.method == "POST":
@@ -53,6 +66,13 @@ def graphCreation(request):
 
 
 def secondChallenge(request):
+    """
+    Esta función se encarga de renderizar el template del segundo reto, que es el de encontrar las rutas directas e
+    indirectas de un puerto.
+    :param request: The request object
+    :return: The render of the second challenge form
+    """
+
     context = {}
 
     if request.method == "POST":

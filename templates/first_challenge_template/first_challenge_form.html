@@ -4,9 +4,17 @@
 
 {% block content %}
     <div class="card" style="width: 100vw; height: 100vh;">
-        <center>
-            <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 40rem; height: auto">
-        </center>
+        {% if image is not None %}
+            <center>
+                <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 40rem; height: auto">
+            </center>
+        {% endif %}
+        {% if image is None %}
+            <center>
+                <h1 class="card-title">No Hay Rutas Ingresadas</h1>
+            </center>
+        {% endif %}
+
         <div class="card-body">
             <p class="card-text">Aqui podrás hallar la ruta más corta entre dos puertos</p>
             <form method="post">
@@ -28,7 +36,6 @@
                             <option value="{{ city }}">{{ city }}</option>
                         {% endfor %}
                     </select>
-                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -39,6 +46,11 @@
         {% if image_dijkstra is not None %}
             <center>
                 <img class="card-img-top" src="data:image/png;base64,{{ image_dijkstra }}" alt="Grafo" style="width: 40rem; height: auto">
+            </center>
+        {% endif %}
+        {% if image_dijkstra is None %}
+            <center>
+                <h1 class="card-title">No Hay Rutas Ingresadas</h1>
             </center>
         {% endif %}
     </div>

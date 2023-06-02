@@ -298,6 +298,8 @@ class Graph:
 
         # Create a new graph with only the shortest path
         shortest_path_graph = Graph(directed=self.directed, weighted=self.weighted)
+        if shortest_path_graph.get_vertices() is None:
+            return None, None, None
         for vertex in result:
             shortest_path_graph.add_vertex(vertex)
         for i in range(len(result) - 1):
@@ -387,6 +389,9 @@ class Graph:
         """
         Draw the graph using the NetworkX library with an improved layout.
         """
+        if not self.get_vertices():
+            return None
+
         graph = nx.DiGraph() if self.directed else nx.Graph()
 
         # Add vertices
@@ -450,15 +455,15 @@ class Graph:
 
 cities = Graph(weighted=True)
 
-cities.add_edge("San Jose", "Cartago", 25)
-cities.add_edge("San Jose", "Heredia", 10)
-cities.add_edge("Cartago", "Heredia", 15)
-cities.add_edge("Cartago", "Turrialba", 40)
-cities.add_edge("Heredia", "Alajuela", 30)
-cities.add_edge("Heredia", "Guanacaste", 222)
-cities.add_edge("Alajuela", "Guanacaste", 200)
-cities.add_edge("Alajuela", "Puntarenas", 150)
-cities.add_edge("Turrialba", "Limon", 100)
-cities.add_edge("Turrialba", "Guanacaste", 300)
-cities.add_edge("Limon", "Puntarenas", 300)
-cities.add_edge("Limon", "Guanacaste", 350)
+# cities.add_edge("San Jose", "Cartago", 25)
+# cities.add_edge("San Jose", "Heredia", 10)
+# cities.add_edge("Cartago", "Heredia", 15)
+# cities.add_edge("Cartago", "Turrialba", 40)
+# cities.add_edge("Heredia", "Alajuela", 30)
+# cities.add_edge("Heredia", "Guanacaste", 222)
+# cities.add_edge("Alajuela", "Guanacaste", 200)
+# cities.add_edge("Alajuela", "Puntarenas", 150)
+# cities.add_edge("Turrialba", "Limon", 100)
+# cities.add_edge("Turrialba", "Guanacaste", 300)
+# cities.add_edge("Limon", "Puntarenas", 300)
+# cities.add_edge("Limon", "Guanacaste", 350)

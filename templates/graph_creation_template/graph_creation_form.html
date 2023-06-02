@@ -5,9 +5,16 @@
 
 {% block content %}
     <div class="card" style="width: 100vw; height: 100vh;">
-        <center>
-            <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 35rem; height: auto">
-        </center>
+        {% if image is not None %}
+            <center>
+                <img class="card-img-top" src="data:image/png;base64,{{ image }}" alt="Grafo" style="width: 40rem; height: auto">
+            </center>
+        {% endif %}
+        {% if image is None %}
+            <center>
+                <h1 class="card-title">No Hay Rutas Ingresadas</h1>
+            </center>
+        {% endif %}
         <div class="card-body">
             <div class="card-title">Creación de Rutas</div>
             <p class="card-text">Aqui podras crear las rutas y puertos que desees</p>
